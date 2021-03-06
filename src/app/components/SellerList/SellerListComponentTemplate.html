@@ -1,0 +1,30 @@
+<div class="list-container">
+  <h5 class="title">Seller List</h5>
+  <table class="table">
+    <thead>
+      <th>Name</th>
+      <th>Currencies</th>
+      <th>Offices</th>
+      <th>Bidded Deals</th>
+      <th>Gauranteed Deals</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="list in sellerList.lists track by $index">
+        <td>{{list.name}}</td>
+        <td>{{list.currency.join(',')}}</td>
+        <td>{{list.office.join(',')}}</td>
+        <td>{{list.bidded ? 'Yes' : 'No'}}</td>
+        <td>{{list.gauranteed ? 'Yes' : 'No' }}</td>
+        <td>
+          <button title="delete" ng-click="sellerList.deleteRecord(list)">
+            <i class="fa fa-trash"></i>
+          </button>
+          <button title="edit" ng-click="sellerList.editRecord(list)">
+            <i class="fa fa-pencil"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,65 @@
+<div class="form-container">
+  <h5 class="title">Seller Form</h5>
+  <ng-form name="sellerDetailsForm">
+    <div class="form-group">
+      <label for="sellerName">Seller Name *</label>
+      <input type="text" name="name" class="form-control" id="sellerName" ng-model="sellerDetails.vo.name" required>
+      <span class="error"
+        ng-show="sellerDetails.showNameValidationError">Name
+        is Required! </span>
+    </div>
+    <div class="form-group">
+      <label>Currencies *</label>
+      <multi-select-dropdown-component vo="sellerDetails.vo" field-name="sellerDetails.currencyField">
+      </multi-select-dropdown-component>
+      <span class="error" ng-show="sellerDetails.showCurrencyValidationError">Currency is Required! </span>
+    </div>
+    <div class="form-group">
+      <label>Offices *</label>
+      <multi-select-dropdown-component vo="sellerDetails.vo" field-name="sellerDetails.officeField">
+      </multi-select-dropdown-component>
+      <span class="error" ng-show="sellerDetails.showOfficeValidationError">Office Location is Required! </span>
+    </div>
+    <div class="form-group deal-type-group">
+      <label class="deal-type">Deal Type *</label>
+      <div class="checkbox-group">
+        <!-- Default inline 1-->
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" class="custom-control-input" id="defaultInline1" ng-model="sellerDetails.vo.bidded">
+          <label class="custom-control-label" for="defaultInline1">Bidded</label>
+        </div>
+
+        <!-- Default inline 2-->
+        <div class="custom-control custom-checkbox custom-control-inline"
+          ng-init="sellerDetails.vo.gauranteed = sellerDetails.vo.gauranteed || true">
+          <input type="checkbox" class="custom-control-input" id="defaultInline2"
+            ng-model="sellerDetails.vo.gauranteed">
+          <label class="custom-control-label" for="defaultInline2">Gauranteed</label>
+        </div>
+      </div>
+      <span class="error" ng-show="!sellerDetails.vo.bidded && !sellerDetails.vo.gauranteed">Deal Type is Required!
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="contactName">Contact Name</label>
+      <input type="text" class="form-control" id="contactName" ng-model="sellerDetails.vo.contactName">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" name="email" ng-model="sellerDetails.vo.email" class="form-control" id="email"
+        ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" />
+      <span class="error" ng-show="sellerDetailsForm.email.$dirty && sellerDetailsForm.email.$error.pattern">Please
+        Enter a Valid Email</span>
+    </div>
+  </ng-form>
+  <div class="btn-container">
+    <button ng-click="sellerDetails.cancel()" class="btn btn-sm btn-cancel">Cancel</button>
+    <button ng-click="sellerDetails.saveRecord()"
+      ng-disabled="(!sellerDetails.vo.bidded && !sellerDetails.vo.gauranteed) || (sellerDetailsForm.email.$dirty && sellerDetailsForm.email.$error.pattern)"
+      class="btn btn-sm btn-info">
+      Save
+    </button>
+  </div>
+</div>
+
+<seller-list-component vo="sellerDetails.vo"></seller-list-component>

@@ -1,0 +1,21 @@
+.dropdown {
+    display: inline-block;
+    width: 249px;
+    .btn-secondary.dropdown-toggle, .btn-secondary.dropdown-toggle:active {
+        background-color: $color-white;
+        border-color: $color-gray;
+        color: $color-black;
+        font-size: $small-font;
+        height: 27px;
+        padding: 3px;
+        text-align: end;
+        width: inherit;
+
+        span {
+            float: left;
+        }
+    }
+    .dropdown-menu {
+        width: inherit;
+    }
+}

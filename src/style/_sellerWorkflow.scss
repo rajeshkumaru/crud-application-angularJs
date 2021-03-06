@@ -1,0 +1,60 @@
+.form-container {
+    margin: 50px;
+    width: 765px;
+    .form-group {
+        height: 45px;
+        margin-bottom: 10px;
+        label {
+            font-size: 13px;
+            width: 100px;
+            &.deal-type {
+                vertical-align: top;;
+            }
+        }
+        .form-control {
+            display: inline-block;
+            height: 25px;
+            width: 250px;
+        }
+        .error {
+            color: $color-red;
+            display: block;
+            font-size: $small-font;
+            margin-left: 100px;
+        }
+        .checkbox-group {
+            display: inline-block;
+            width: min-content;
+            .custom-checkbox {
+                .custom-control-input:checked~ {
+                    .custom-control-label::before {
+                        background-color: #09c;
+                    }
+                }
+                .custom-control-label {
+                    padding-top: 2px;
+                }
+            }
+        }
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+        }
+
+        &.deal-type-group {
+            height: 65px;
+        }
+    }
+}
+.btn-container {
+    float: right;
+    width: 558px;
+    .btn-sm {
+        width: 70px;
+        &.btn-cancel {
+            background-color: $color-gray-dark;
+            color: $color-white;
+        }
+    }
+}

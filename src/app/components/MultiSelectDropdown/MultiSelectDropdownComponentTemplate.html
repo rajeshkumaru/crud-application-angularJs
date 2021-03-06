@@ -1,0 +1,16 @@
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">
+    <span>
+      {{config.vo[config.fieldName].length ? config.vo[config.fieldName].join(',') : ''}}
+    </span>
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#"
+      ng-repeat="option in config.fieldName == 'office' ? config.officeOptions : config.currencyOptions">
+      <input type="checkbox" ng-click="config.selectOption(option, config.fieldName)"
+        ng-checked="config.vo[config.fieldName].indexOf(option) > -1" />
+      {{option}}
+    </a>
+  </div>
+</div>

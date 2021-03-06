@@ -1,0 +1,35 @@
+.list-container {
+    margin: 50px;
+    width: 765px;
+
+    .table {
+        thead th {
+            font-size: $medium-font;
+            font-weight: unset;
+            opacity: 0.5;
+        }
+        tbody td {
+            font-size: $medium-font;
+            border-bottom: 1px solid #dee2e6;
+        }
+        button {
+            background: unset;
+            border: unset;
+            .fa {
+                color: $color-gray;
+                font-size: $large-font;
+                font-weight: normal;
+            }
+            .fa-pencil {
+                &:before {
+                    content: "\f040";
+                }
+            }
+            .fa-trash {
+                &:before {
+                    content: "\f1f8";
+                }
+            }
+        }
+    }
+}
